@@ -1,16 +1,27 @@
-//-Оголоси змінну для зберігання загальної суми замовлення (загальна вартість усіх замовлених дроїдів)
-// і задай їй вираз розрахунку цієї суми.
-//-Додай перевірку, чи зможе клієнт оплатити замовлення:
-//-якщо сума до сплати перевищує кількість кредитів на рахунку клієнта, функція має повертати рядок "Insufficient funds!"
-//-в іншому випадку функція має повертати рядок "You ordered <quantity> droids worth <totalPrice> credits!",
-//де < quantity > це кількість замовлених дроїдів, а < totalPrice > це їх загальна вартість.
-`use strict`;
+/*  Станция по продаже ремонтных дроидов готова к запуску,
+ * осталось написать программное обеспечение для отдела продаж.
+ * Объяви функцию makeTransaction(quantity, pricePerDroid, customerCredits),
+ * которая составляет и возвращает сообщение о покупке ремонтных дроидов.
+ * Она объявляет три параметра, значения которых будут задаваться при ее вызове:
+ * - quantity - количество заказанных дроидов
+ * - pricePerDroid - цена одного дроида
+ * - customerCredits - сумма средств на счету клиента Дополни функцию следующим образом:
+ * - Объяви переменную для хранения общей суммы заказа
+ * (общая стоимость всех заказанных дроидов) и задай ей выражение расчета этой суммы.
+ * - Добавь проверку, сможет ли клиент оплатить заказ:
+ * - если сумма к оплате превышает количество кредитов на счету клиента,
+ * функция должна возвращать строку "Insufficient funds!"
+ * - в противном случае функция должна возвращать строку
+ * "You ordered <quantity> droids worth <totalPrice> credits!",
+ * где <quantity> это количество заказанных дроидов, а <totalPrice>
+ * это их общая стоимость. */
+
 function makeTransaction(quantity, pricePerDroid, customerCredits) {
-  const totalPrice = quantity * pricePerDroid;
+  const totalPrice = pricePerDroid * quantity;
   if (totalPrice > customerCredits) {
-    return `Insufficient funds!`;
+    return 'Insufficient funds!';
   } else {
-    return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+    return `'You ordered ${quantity} droids worth ${totalPrice} credits!'`;
   }
 }
 console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
